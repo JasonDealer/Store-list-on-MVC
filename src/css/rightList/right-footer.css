@@ -1,0 +1,37 @@
+.wrapper .right-list footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #414e5be5;
+    margin: 8px;
+    border-radius: 5px;
+    height: 39px;
+    width: calc(99vw - 360px);
+    z-index: 1;
+}
+
+.wrapper .right-list .right-footer .btn {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #99aab8;
+    border-radius: 5px;
+    color: #d8eaff;
+    height: 26px;
+    width: 80px;
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+.wrapper .right-list .right-footer .btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .right-list .right-footer .create-btn {
+    right: 110px;
+}
+
+.wrapper .right-list .right-footer .del-btn {
+    right: 20px;
+    border: 1px solid rgb(212, 0, 0);
+    color: rgb(212, 0, 0);
+}

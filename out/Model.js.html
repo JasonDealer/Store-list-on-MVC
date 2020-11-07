@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Model.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Model.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/* eslint-disable prettier/prettier */
+/* eslint-disable max-nested-callbacks */
+/* eslint-disable quotes */
+
+/**
+ * Model class. Knows everything about API endpoint and data structure. Can format/map data to any structure.
+ *
+ * @constructor
+ */
+function Model() {
+    /**
+     * Common method which "promisifies" the XHR calls.
+     *
+     * @param {string} url the URL address to fetch.
+     *
+     * @return {Promise} the promise object will be resolved once XHR gets loaded/failed.
+     *
+     * @public
+     */
+    this.fetchData = function(url) {
+        return new Promise(function(resolve, reject) {
+            let req = new XMLHttpRequest();
+
+            req.open("GET", url, true);
+
+            // listen to load event
+            req.addEventListener("load", function() {
+                if (req.status &lt; 400) {
+                    resolve(JSON.parse(req.response));
+                } else {
+                    reject(new Error("Request failed: " + req.statusText));
+                }
+            });
+
+            // listen to error event
+            req.addEventListener("error", function() {
+                reject(new Error("Network error"));
+            });
+
+            req.send(null);
+        });
+    };
+
+    /**
+     * Common method which "promisifies" the XHR calls.
+     *
+     * @param {string} url the URL address to fetch.
+     *
+     * @param {object} data the object to post on the db.
+     *
+     * @return {Promise} the promise object will be resolved once XHR gets loaded/failed.
+     *
+     * @public
+     */
+    this.fetchDataPost = function(url, data) {
+        return new Promise(function(resolve, reject) {
+            let req = new XMLHttpRequest();
+
+            req.open("POST", url, true);
+            req.setRequestHeader("Content-Type", "application/json");
+            // listen to load event
+            req.addEventListener("load", function() {
+                if (req.status &lt; 400) {
+                    resolve(req.responseText);
+                } else {
+                    reject(new Error("Request failed: " + req.statusText));
+                }
+            });
+
+            // listen to error event
+            req.addEventListener("error", function() {
+                reject(new Error("Network error"));
+            });
+
+            let postData = JSON.stringify(data);
+            req.send(postData);
+        });
+    };
+
+    /**
+     * Common method which "promisifies" the XHR calls.
+     *
+     * @param {string} url the URL address to fetch.
+     *
+     * @return {Promise} the promise object will be resolved once XHR gets loaded/failed.
+     *
+     * @public
+     */
+    this.fetchDataDelete = function(url) {
+        return new Promise(function(resolve, reject) {
+            let req = new XMLHttpRequest();
+
+            req.open("DELETE", url, true);
+            req.setRequestHeader("Content-Type", "application/json");
+            // listen to load event
+            req.addEventListener("load", function() {
+                if (req.status &lt; 400) {
+                    resolve(req.responseText);
+                } else {
+                    reject(new Error("Request failed: " + req.statusText));
+                }
+            });
+
+            // listen to error event
+            req.addEventListener("error", function() {
+                reject(new Error("Network error"));
+            });
+
+            req.send(null);
+        });
+    };
+
+    /**
+     * Common method which "promisifies" the XHR calls.
+     *
+     * @param {string} url the URL address to fetch.
+     *
+     * @param {object} data the object to PUT on the db.
+     *
+     * @return {Promise} the promise object will be resolved once XHR gets loaded/failed.
+     *
+     * @public
+     */
+    this.fetchDataPut = function(url, data) {
+        return new Promise(function(resolve, reject) {
+            let req = new XMLHttpRequest();
+
+            req.open("PUT", url, true);
+            req.setRequestHeader("Content-Type", "application/json");
+            // listen to load event
+            req.addEventListener("load", function() {
+                if (req.status &lt; 400) {
+                    resolve(JSON.parse(req.response));
+                } else {
+                    reject(new Error("Request failed: " + req.statusText));
+                }
+            });
+
+            // listen to error event
+            req.addEventListener("error", function() {
+                reject(new Error("Network error"));
+            });
+
+            let postData = JSON.stringify(data);
+            req.send(postData);
+        });
+    };
+}
+
+export default Model;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Controller.html">Controller</a></li><li><a href="Model.html">Model</a></li><li><a href="View.html">View</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Mon Nov 02 2020 22:12:39 GMT+0300 (GMT+03:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

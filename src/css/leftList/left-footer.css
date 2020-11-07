@@ -1,0 +1,27 @@
+.wrapper .left-footer {
+    position: fixed;
+    bottom: 0;
+    margin: 8px;
+    background-color: #414e5be5;
+    border-radius: 5px;
+    height: 39px;
+    width: 320px;
+    z-index: 1;
+}
+
+.wrapper .left-footer .create-btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #99aab8;
+    border-radius: 5px;
+    color: #d8eaff;
+    height: 26px;
+    width: 80px;
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+.wrapper .left-footer .create-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}

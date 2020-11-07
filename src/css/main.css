@@ -1,0 +1,21 @@
+@import url("reset.css");
+@import url("../font-awesome/css/font-awesome.min.css");
+@import url("leftList/left-list-header.css");
+@import url("leftList/store-cards.css");
+@import url("leftList/left-footer.css");
+@import url("rightList/right-list-header.css");
+@import url("rightList/right-list-info.css");
+@import url("rightList/right-list-count.css");
+@import url("rightList/right-list-product-cards.css");
+@import url("rightList/right-list-product-cards.css");
+@import url("rightList/right-footer.css");
+@import url("toggle-classes.css");
+@import url("media.css");
+@import url("rightList/mock.css");
+@import url("modal-window.css");
+
+.wrapper {
+    position: relative;
+    width: 100vw;
+    display: flex;
+}

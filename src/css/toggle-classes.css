@@ -1,0 +1,88 @@
+.hide {
+    display: none !important;
+}
+
+.list-hidden {
+    left: 0 !important;
+    transition: all 0.5s;
+}
+
+.pinned-store-search {
+    position: sticky !important;
+    top: 64px !important;
+    z-index: 2;
+}
+
+.divider-with-search {
+    top: 90px !important;
+    z-index: 3 !important;
+}
+
+.btn-pressed {
+    background-color: #00c91b83 !important;
+}
+
+.bottom-card {
+    margin-bottom: 50px;
+}
+
+.sort-btn {
+    background-color: #fff;
+    border: none;
+}
+
+.sort-btn:hover {
+    cursor: pointer;
+}
+
+.chosen {
+    background-color: #0079c9ab !important;
+}
+
+.loading-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+
+.editing {
+    background-color: #f700ff5b !important;
+}
+
+.status-sort {
+    border-bottom: 4px solid rgba(21, 4, 175, 0.712);
+}
+
+.refresh-rotate {
+    z-index: 20;
+    animation: rotate 1s;
+    top: 5px !important;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        transform: rotate(180deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(360deg);
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: rotate(540deg);
+        animation-timing-function: ease-in;
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}

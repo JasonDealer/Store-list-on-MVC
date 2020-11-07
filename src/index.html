@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store List</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script defer type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div class="overlay hide">
+        <div class="modal-window modal-window-store hide">
+            <div class="modal-title">
+                Create new store
+            </div>
+            <div class="modal-body">
+                <form action="create" method="post">
+                    <span>*</span><label for="name">Name:</label><br>
+                    <input type="text" class="modal-input" name="name" placeholder="Enter name" id="input_1" required>
+                    <span>*</span><label for="email">Email:</label><br>
+                    <input type="email" class="modal-input" name="email" placeholder="Enter email" id="input_2" required>
+                    <span>*</span><label for="tel">Phone Number:</label><br>
+                    <input type="tel" class="modal-input" name="tel" placeholder="Enter phone number" id="input_3" required>
+                    <span>*</span><label for="address">Address:</label><br>
+                    <input type="text" class="modal-input" name="address" placeholder="Enter address" id="input_4" required>
+                    <span>*</span><label for="date">Established date:</label><br>
+                    <input type="date" class="modal-input" name="date" placeholder="dd-mm-yyyy" id="input_5" required>
+                    <span>*</span><label for="area">Floor area:</label><br>
+                    <input type="text" class="modal-input" name="area" placeholder="Enter floor area (in sq.m)" id="input_6" required>
+                    <div class="warn hide">Wrong input</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-create">Create</button>
+                <button class="modal-cancel">Cancel</button>
+            </div>
+        </div>
+        <div class="modal-window modal-window-product hide">
+            <div class="modal-title">
+                Create new product
+            </div>
+            <div class="modal-body">
+                <form action="create" method="post">
+                    <span>*</span><label for="name">Name:</label><br>
+                    <input type="text" class="modal-input input-prod" name="name" placeholder="Enter name" id="input_product_1" required>
+                    <span>*</span><label for="price">Price:</label><br>
+                    <input type="text" class="modal-input input-prod price-input" name="price" placeholder="Enter email" id="input_product_2" required> USD
+                    <div class="warn-price warn hide">Wrong input</div>
+                    <span>*</span><label for="specs">Specs:</label><br>
+                    <input type="text" class="modal-input input-prod" name="specs" placeholder="Enter product specs" id="input_product_3" required>
+                    <span>*</span><label for="rating">Rating:</label><br>
+                    <input type="number" class="modal-input input-prod" name="rating" placeholder="Enter rating (1-5)" id="input_product_4" required>
+                    <div class="warn-rating warn hide">Wrong input</div>
+                    <span>*</span><label for="supplier">Supplier info:</label><br>
+                    <input type="text" class="modal-input input-prod" name="supplier" placeholder="Enter supplier info" id="input_product_5" required>
+                    <span>*</span><label for="country">Made in:</label><br>
+                    <input type="text" class="modal-input input-prod" name="country" placeholder="Enter origin country" id="input_product_6" required>
+                    <span>*</span><label for="company">Production company name:</label><br>
+                    <input type="text" class="modal-input input-prod" name="company" placeholder="Enter manufacturer name" id="input_product_7" required>
+                    <span>*</span><label for="status">Status:</label><br>
+                    <select class="modal-input input-prod" name="status" id="input_product_8" required>
+                        <option value="OK">OK</option>
+                        <option value="STORAGE">STORAGE</option>
+                        <option value="OUT_OF_STOCK">OUT_OF_STOCK</option>
+                    </select>
+                    <div class="warn hide">Wrong input</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="modal-create edit-product-modal-btn hide">Edit</button>
+                <button type="submit" class="modal-create create-product-modal-btn">Create</button>
+                <button class="modal-cancel cancel-product-modal-btn">Cancel</button>
+            </div>
+        </div>
+        <div class="modal-warn hide">Store already exists</div>
+        <div class="modal-confirmation toast-store-created hide">Store was successfully created</div>
+        <div class="modal-confirmation toast-product-created hide">Product was successfully created</div>
+        <div class="modal-confirmation modal-confirmation-delete hide">
+            Do you realy want to delete this shop?<br>
+            <button class="confirm-delete-btn">Confirm</button>
+        </div>
+        <div class="modal-confirmation wrong-input-warning hide">One or more fields are empty!</div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-btn">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </div>
+        <div class="left-scrollable">
+            <header class="head-store-list">
+                Stores list
+            </header>
+            <div class="search-panel">
+                <input type="text" id="search-input" class="search-input" placeholder="Search">
+                <i id="storeSearchBtn" class="btn search-btn fa fa-search" aria-hidden="true"></i>
+                <i id="storeRefreshBtn" class="btn reset-btn fa fa-refresh" aria-hidden="true"></i>
+                <i id="storeDeleteBtn" class="hide btn reset-btn fa fa-ban" aria-hidden="true"></i>
+            </div>
+            <div id="storeDivider" class="divider">
+                <hr size="2px" color="#d6dfe8">
+                <div id="rollBtnStores" class="btn up">
+                    <i class="up-icon fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <div id="pinBtnStores" class="btn pin">
+                    <i class="pin-icon fa fa-thumb-tack" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="store-list">
+                <!--Store Cards are created by lists.js-->
+            </div>
+            <footer class="left-footer">
+                <button class="btn create-btn">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Create
+                </button>
+            </footer>
+        </div>
+        <div class="store-mock">
+            <div class="icon-mock">
+                <img class="store-icon" src="/src/img/store.png" alt="store">
+            </div>
+            <div class="mock-description">
+                <span>The store is not selected</span><br>
+                Please select the store to proceed
+            </div>
+        </div>
+        <div class="right-list hide">
+            <header class="right-header">
+                <div class="right-list-title">Store Details</div>
+            </header>
+            <div class="right-list-info">
+                
+            </div>
+            <div class="divider">
+                <hr size="2px" color="#d6dfe8">
+                <div id="rollBtnProducts" class="btn up">
+                    <i class="up-icon fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                <div id="pinBtnProducts" class="btn pin">
+                    <i class="pin-icon fa fa-thumb-tack" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="item-count">
+                <div class="icon switch-all status-sort item-count-icon">
+                    <div class="counter">
+                        0
+                    </div>
+                    <span>
+                        All
+                    </span>
+                </div>
+                <hr noshade>
+                <div class="switch-ok icon">
+                    <div class="round ok-round">
+                        <i class="item-center fa fa-check" aria-hidden="true"></i>
+                    </div>
+                    <div class="special-counter ok">0</div>
+                    <span>Ok</span>
+                </div>
+                <div class="switch-storage icon">
+                    <div class="round storage-round">
+                        <i class="item-center fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </div>
+                    <div class="special-counter storage">0</div>
+                    <span>Storage</span>
+                </div>
+                <div class="switch-out icon">
+                    <div class="round out-round">
+                        <i class="item-center fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="special-counter out">0</div>
+                    <span>Out of stock</span>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-header">
+                    Products
+                </div>
+                <table class="product-subheader">
+                    <tr>
+                        <th class="name">
+                            Name <button class="sort-btn sort-by-name-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="price">
+                            Price <button class="sort-btn sort-by-price-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="specs">
+                            Specs <button class="sort-btn sort-by-specs-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="supplier">
+                            Supplierinfo <button class="sort-btn sort-by-sup-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="country">
+                            Country of origin <button class="sort-btn sort-by-country-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="company">
+                            Prod. company <button class="sort-btn sort-by-comp-btn"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                        </th>
+                        <th class="rating">
+                            Rating
+                        </th>
+                        <th class="btns">
+                            
+                        </th>
+                    </tr>
+                </table>
+                <div class="items">
+                    <table class="product-table">
+                        
+                    </table>
+                </div>
+            </div>
+            <footer class="right-footer">
+                <button class="btn create-product-btn create-btn">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Create
+                </button>
+                <button class="btn del-btn clickable">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    Delete
+                </button>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

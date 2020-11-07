@@ -1,0 +1,19 @@
+.right-list {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+.right-list .right-header {
+    position: sticky;
+    box-sizing: border-box;
+    top: 0;
+    padding: 15px 100px;
+    font-weight: 500;
+    font-size: 24px;
+    color: #434949;
+    z-index: 1;
+    height: 60px;
+    background-color: #f0f4f8ef;
+}

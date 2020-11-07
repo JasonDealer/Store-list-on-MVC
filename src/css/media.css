@@ -1,0 +1,29 @@
+@media (min-width: 877px) {
+    .menu-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 1176px) {
+    .right-list .right-list-info {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 876px) {
+    .left-scrollable {
+        position: absolute;
+        left: -350px;
+        z-index: 3;
+        transition: all 0.6s linear;
+    }
+
+    .menu-btn {
+        left: 0;
+        transition: all 0.5s;
+    }
+
+    .wrapper .right-list footer {
+        width: 100vw;
+    }
+}

@@ -1,0 +1,159 @@
+.right-list .product-list {
+    padding: 15px;
+}
+
+.right-list .product-subheader {
+    position: sticky;
+    top: 62px;
+    z-index: 1;
+}
+
+.right-list .product-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    height: 60px;
+    background-color: #f7f7f7;
+    color: #434949;
+    font-weight: 500;
+    font-size: 24px;
+    border-bottom: 1.5px solid #e6e6e6;
+}
+
+.right-list table {
+    box-sizing: border-box;
+    table-layout: fixed;
+    position: relative;
+    width: 100%;
+    background-color: #f7f7f7;
+    color: #434949;
+    border-bottom: 1.5px solid #e6e6e6;
+}
+
+.right-list table th,
+td {
+    padding: 8px 15px;
+    font-weight: 400;
+    font-size: 0.9em;
+    text-align: left;
+    vertical-align: middle;
+    height: 60px;
+    border-bottom: 1.5px solid #e6e6e6;
+}
+
+.right-list table .name {
+    position: relative;
+    vertical-align: top;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 15%;
+}
+
+.right-list table .name .name-item {
+    position: relative;
+    vertical-align: top;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.right-list table th {
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
+    height: 18px;
+    font-weight: 400;
+}
+
+.right-list table th.supplier{
+    white-space: unset;
+    overflow: auto;
+    text-overflow: unset;
+    height: 18px;
+    font-weight: 400;
+}
+
+.right-list table .price,
+.btns {
+    width: 10%;
+}
+
+.right-list table .rating,
+.rating-item {
+    width: 100px;
+}
+
+.right-list table .specs,
+.supplier,
+.country,
+.company {
+    width: 15%;
+}
+
+.right-list table .specs,
+.supplier,
+.company {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 15%;
+}
+
+.right-list table .rating .more {
+    position: relative;
+    left: 15%;
+}
+
+.right-list table .name .item-id {
+    position: absolute;
+    bottom: 10%;
+    font-weight: 400;
+}
+
+.right-list table .price span {
+    font-size: 10px;
+    color: #b1b5b4;
+}
+
+.right-list .items table tr:hover {
+    cursor: pointer;
+    background-color: #0078c983;
+}
+
+.right-list table .btns {
+    transform: rotate(0);
+}
+
+.right-list table .btns span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-15%);
+    height: 100%;
+    margin-right: 20px;
+}
+
+.items {
+    padding-bottom: 40px;
+}
+
+.del-prod {
+    margin-left: 30px;
+}
+
+.del-prod:hover {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+}
+
+.fa-pencil:hover {
+    font-size: 20px;
+    color: rgb(0, 0, 255);
+}
+
+.stat-item {
+    font-size: 18px;
+    color: gold;
+}
