@@ -1,6 +1,6 @@
 {
-  "name": "leverx-vanillajs-template",
-  "description": "Template for frontend vanilla JS homeworks",
+  "name": "Kovler-web-app-DP",
+  "description": "Web-app-marketplace",
   "scripts": {
     "lint": "eslint src/**/*.js",
     "lint-fix": "npm run lint -- --fix",
